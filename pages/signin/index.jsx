@@ -4,41 +4,52 @@ import React from "react";
 export default function Signin() {
   return (
     <div>
-      <div className="container-fluid bg-primary">
-        <div className="row bg-warning">
-          <div className="left col col-md-6 bg-warning">
-            <h1>Fazzpay</h1>
-            <div className="icon__image text-center">
+      <div className="contsign container-fluid py-0 text center">
+        <div className="row my-0">
+          <div className="left d-md-flex d-none px-0 flex-column col-lg-6">
+            <div className="tittle_app mt-3">FazzPay</div>
+            <div className="mask__image py-0 my-0">
+              <img
+                className="mask_image"
+                src="mask.png"
+                alt=""
+                style={{ width: "200vh", height: "10vh" }}
+              />
+            </div>
+            <div className="icon__image text-center mt-3">
               <img
                 src="png-phone.png"
                 alt="icon1"
-                style={{ width: 100, height: 100 }}
+                style={{ width: "50vh", height: "50vh" }}
               />
+            </div>
+            <div className="icon_image mt-3">
               <img
                 src="png-phone2.png"
                 alt="icon2"
-                style={{ width: 100, height: 100 }}
+                style={{ width: "50vh", height: "50vh" }}
               />
             </div>
-            <h1>App that Covering Banking Needs</h1>
-            <h6>
+            <div className="opinion__left">App that Covering Banking Needs</div>
+            <div className="opinion_left mt-3">
               FazzPay is an application that focussing in banking needs for all
               users in the world. Always updated and always following world
               trends. 50000+ users registered in Fazzpay everyday with worldwide
               users coverage
-            </h6>
+            </div>
           </div>
-          <div className="right col col-md-6 bg-white">
-            <h5>
-              Start Accessing Banking Needs With All Devices and All Platforms
+          <div className="right col-lg-6 bg-white mt-5">
+            <div className="opinion_right">
+              Start Accessing Banking Needs
+              <br /> With All Devices and All Platforms <br />
               With 30.000+ Users
-            </h5>
-            <h4>
+            </div>
+            <div className="opinion__right mt-3 w-50">
               Transfering money is eassier than ever, you can acces FazzPay
               wherever you are. Dekstop,laptop,mobile phone? we cover all of
               that for you
-            </h4>
-            <div className="input__grup">
+            </div>
+            <div className="input__grup w-75">
               <div>
                 {/* This form */}
                 <form>
@@ -49,8 +60,8 @@ export default function Signin() {
                       <span class="omrs-input-helper"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
+                        width="16"
+                        height="16"
                         fill="currentColor"
                         class="bi bi-envelope"
                         viewBox="0 0 16 16"
@@ -59,7 +70,7 @@ export default function Signin() {
                       </svg>
                     </label>
                   </div>
-                  <div class="omrs-input-group mt-5">
+                  <div class="omrs-input-group mt-3">
                     <label class="omrs-input-underlined">
                       <input required />
                       <span class="omrs-input-label">Enter your password</span>
@@ -94,12 +105,18 @@ export default function Signin() {
                 {/* end form */}
               </div>
             </div>
-            tes
+            <div className="forgot_button text-center mt-3">
+              Forgot Password?
+            </div>
+            <div className="login_button mt-3">
+              <button className="btn btn-primary w-75">Login</button>
+            </div>
+            <div className="nav_signup mt-3">
+              Dont have an account? Lets Sign Up
+            </div>
           </div>
         </div>
-        tes
       </div>
-      <h1>Signin</h1>
     </div>
   );
 }
