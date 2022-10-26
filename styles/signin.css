@@ -31,25 +31,31 @@
   position: absolute;
   left: 115px;
   z-index: 2;
+  margin-top: 15vh !important;
 }
 .icon_image {
   position: absolute;
+  margin-top: 15vh !important;
 }
 .opinion__left {
   margin-top: 55vh;
   color: #ffffff;
+  margin-left: 10vh;
 }
 .opinion_left {
   color: #ffffff;
   font-size: 12px;
+  margin-left: 10vh;
 }
 /* left style */
 /* right style */
 .opinion_right {
-  font-size: 15px;
+  font-size: 24px;
+  margin-left: 6vh;
 }
 .opinion__right {
-  font-size: 10px;
+  font-size: 16px;
+  margin-left: 6vh;
 }
 /* right style */
 /* style input */
@@ -75,7 +81,7 @@ div.omrs-input-group {
 .omrs-input-filled > input {
   border: none;
   border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
-  width: 100%;
+  width: 250%;
   height: 3rem;
   font-size: 12px;
   padding-left: 2rem;
@@ -111,7 +117,7 @@ div.omrs-input-group {
 .omrs-input-filled > svg {
   position: absolute;
   top: 0.9375rem;
-  right: 5rem;
+  right: -10rem;
   fill: var(--omrs-color-ink-medium-contrast);
 }
 
@@ -147,12 +153,13 @@ div.omrs-input-group {
 }
 /* end style input */
 .forgot_button {
-  font-size: 10px;
+  font-size: 14px;
+  margin-left: 230px;
 }
 .login_button {
   margin-left: 50px;
 }
 .nav_signup {
   font-size: 10px;
-  margin-left: 150px;
+  margin-left: 180px;
 }

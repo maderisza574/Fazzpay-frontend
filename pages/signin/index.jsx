@@ -16,22 +16,24 @@ export default function Signin() {
                 style={{ width: "200vh", height: "10vh" }}
               />
             </div>
-            <div className="icon__image text-center mt-3">
+            <div className="icon__image text-center mt-5">
               <img
                 src="png-phone.png"
                 alt="icon1"
                 style={{ width: "50vh", height: "50vh" }}
               />
             </div>
-            <div className="icon_image mt-3">
+            <div className="icon_image mt-5">
               <img
                 src="png-phone2.png"
                 alt="icon2"
                 style={{ width: "50vh", height: "50vh" }}
               />
             </div>
-            <div className="opinion__left">App that Covering Banking Needs</div>
-            <div className="opinion_left mt-3">
+            <div className="opinion__left w-50">
+              App that Covering Banking Needs
+            </div>
+            <div className="opinion_left mt-3 w-50">
               FazzPay is an application that focussing in banking needs for all
               users in the world. Always updated and always following world
               trends. 50000+ users registered in Fazzpay everyday with worldwide
@@ -53,7 +55,7 @@ export default function Signin() {
               <div>
                 {/* This form */}
                 <form>
-                  <div class="omrs-input-group ">
+                  <div class="omrs-input-group mt-3">
                     <label class="omrs-input-underlined">
                       <input required />
                       <span class="omrs-input-label">Enter your e-mail</span>
@@ -105,7 +107,7 @@ export default function Signin() {
                 {/* end form */}
               </div>
             </div>
-            <div className="forgot_button text-center mt-3">
+            <div className="forgot_button text-center mt-1">
               Forgot Password?
             </div>
             <div className="login_button mt-3">
