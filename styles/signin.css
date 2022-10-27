@@ -181,3 +181,7 @@ div.omrs-input-group {
   font-size: 10px;
   margin-left: 40vh;
 }
+.pin_input {
+  margin-left: 5vh;
+  margin-top: 10vh !important;
+}
