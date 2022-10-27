@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Aside() {
   return (
-    <div>
-      <div className="row_dashboard row ">
+    <div className="container bg-white">
+      <div className="row_dashboard row">
         <div className="col d-flex">
           <div className="img_dashboard">
             <img src="icon1.png" alt="" style={{ width: 20, height: 20 }} />
