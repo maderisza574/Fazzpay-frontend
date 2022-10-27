@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="main container-fluid bg-light">
+      <div className="main container-fluid py-2 bg-light">
         <div className="row gap-2">
-          <div className="left_home col col-md-2 white">
+          <div className="left_home col col-md-2">
             <Aside />
           </div>
           <div className="right_home col col-md-9 bg-light">
