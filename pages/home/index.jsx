@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "components/header";
 import Aside from "components/aside";
+import Footer from "components/footer";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           <div className="left_home col col-md-2 white">
             <Aside />
           </div>
-          <div className="right_home col col-md-9 bg-warning">
+          <div className="right_home col col-md-9 bg-light">
             <div className="crd_balance card">
               <div className="row">
                 <div className="col col-md-8">
@@ -36,7 +37,7 @@ export default function Home() {
             {/* end card top */}
             <div className="row gap-1 mx-1 my-5">
               <div className="row">
-                <div className="col col-md-6 me-1 bg-primary w-40">
+                <div className="col col-md-6 me-1 bg-white rounded">
                   <div className="row">
                     <div className="col">
                       <h6>Icome</h6>
@@ -48,7 +49,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col col-md-5 bg-danger w-40">
+                <div className="col col-md-5 bg-white rounded">
                   <h6>Transaction History</h6>
                   <div className="card">
                     <div className="avatar">
@@ -69,6 +70,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
