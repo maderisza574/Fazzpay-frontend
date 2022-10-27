@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+.navbar {
+  color: #6379f4;
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 40px;
+}
+.tes {
+  color: red;
+}
+.avatar {
+  height: 5px;
+  weight: 6px;
+  margin-right: 20px;
+}
