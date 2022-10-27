@@ -1,0 +1,17 @@
+.row_dashboard {
+  height: 8vh !important;
+}
+.row_transfer {
+  height: 8vh !important;
+}
+.row_topup {
+  height: 8vh !important;
+}
+.row_logout {
+  height: 8vh !important;
+}
+/* for icon aside */
+.img_dashboard {
+  padding: 3px;
+  padding-right: 3px;
+}

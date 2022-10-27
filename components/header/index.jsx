@@ -42,9 +42,9 @@ export default function Header() {
         </div>
       </nav>
       {/* Navbar */}
-      <button onClick={handleLogout}>Logout</button>
+      {/* <button onClick={handleLogout}>Logout</button>
       <button className="btn btn-primary">CLICK</button>
-      <h6 className="tes">TES</h6>
+      <h6 className="tes">TES</h6> */}
     </div>
   );
 }
