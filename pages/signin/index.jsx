@@ -5,35 +5,20 @@ export default function Signin() {
   return (
     <div>
       <div className="contsign container-fluid py-0 text center">
-        <div className="row my-0">
+        <div className="home my-0">
           <div className="left d-md-flex d-none px-0 flex-column col-lg-6">
-            <div className="tittle_app mt-3">FazzPay</div>
-            <div className="mask__image py-0 my-0">
-              <img
-                className="mask_image"
-                src="mask.png"
-                alt=""
-                style={{ width: "200vh", height: "10vh" }}
-              />
-            </div>
+            <div className="tittle_app mt-5">FazzPay</div>
             <div className="icon__image text-center mt-5">
               <img
-                src="png-phone.png"
+                src="Group 57.png"
                 alt="icon1"
-                style={{ width: "50vh", height: "50vh" }}
-              />
-            </div>
-            <div className="icon_image mt-5">
-              <img
-                src="png-phone2.png"
-                alt="icon2"
-                style={{ width: "50vh", height: "50vh" }}
+                style={{ width: "60vh", height: "60vh" }}
               />
             </div>
             <div className="opinion__left w-50">
               App that Covering Banking Needs
             </div>
-            <div className="opinion_left mt-3 w-50">
+            <div className="opinion_left mt-3 mb-5 w-50">
               FazzPay is an application that focussing in banking needs for all
               users in the world. Always updated and always following world
               trends. 50000+ users registered in Fazzpay everyday with worldwide
@@ -107,9 +92,7 @@ export default function Signin() {
                 {/* end form */}
               </div>
             </div>
-            <div className="forgot_button text-center mt-1">
-              Forgot Password?
-            </div>
+            <div className="forgot_button  mt-1">Forgot Password?</div>
             <div className="login_button mt-3">
               <button className="btn btn-primary w-75">Login</button>
             </div>
