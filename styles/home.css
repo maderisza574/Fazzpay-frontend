@@ -10,6 +10,10 @@
 .button_filter {
   margin-left: 120vh;
 }
+.crd_balance {
+  background-color: #6379f4;
+  color: white;
+}
 /* .output {
   margin-left: 100vh;
 } */
