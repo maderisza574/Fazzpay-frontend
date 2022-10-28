@@ -15,7 +15,7 @@ export default function Home() {
           <div className="right_home col col-md-9 bg-white rounded">
             <h6 className="mt-3">Search Receiver</h6>
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"

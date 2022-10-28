@@ -41,7 +41,7 @@ export default function Signin() {
               <div>
                 {/* This form */}
                 <form>
-                  <div class="pin_input row d-flex justify-content-center mt-3">
+                  <div className="pin_input row d-flex justify-content-center mt-3">
                     <PinInput type="numeric" length={6} inputMode="number" />
                   </div>
                 </form>

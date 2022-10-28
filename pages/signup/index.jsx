@@ -60,87 +60,95 @@ export default function Signin() {
               <div>
                 {/* This form */}
                 <form>
-                  <div class="omrs-input-group mt-3">
-                    <label class="omrs-input-underlined">
+                  <div className="omrs-input-group mt-3">
+                    <label className="omrs-input-underlined">
                       <input
                         type="text"
                         name="firstname"
                         onChange={handleChangeText}
                         required
                       />
-                      <span class="omrs-input-label">Enter your firstname</span>
-                      <span class="omrs-input-helper"></span>
+                      <span className="omrs-input-label">
+                        Enter your firstname
+                      </span>
+                      <span className="omrs-input-helper"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-person"
+                        className="bi bi-person"
                         viewBox="0 0 16 16"
                       >
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                       </svg>
                     </label>
                   </div>
-                  <div class="omrs-input-group mt-3">
-                    <label class="omrs-input-underlined">
+                  <div className="omrs-input-group mt-3">
+                    <label className="omrs-input-underlined">
                       <input
                         type="text"
                         name="lastname"
                         onChange={handleChangeText}
                         required
                       />
-                      <span class="omrs-input-label">Enter your lastname</span>
-                      <span class="omrs-input-helper"></span>
+                      <span className="omrs-input-label">
+                        Enter your lastname
+                      </span>
+                      <span className="omrs-input-helper"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-person"
+                        className="bi bi-person"
                         viewBox="0 0 16 16"
                       >
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                       </svg>
                     </label>
                   </div>
-                  <div class="omrs-input-group mt-3">
-                    <label class="omrs-input-underlined">
+                  <div className="omrs-input-group mt-3">
+                    <label className="omrs-input-underlined">
                       <input
                         type="text"
                         name="email"
                         onChange={handleChangeText}
                         required
                       />
-                      <span class="omrs-input-label">Enter your e-mail</span>
-                      <span class="omrs-input-helper"></span>
+                      <span className="omrs-input-label">
+                        Enter your e-mail
+                      </span>
+                      <span className="omrs-input-helper"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-envelope"
+                        className="bi bi-envelope"
                         viewBox="0 0 16 16"
                       >
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                       </svg>
                     </label>
                   </div>
-                  <div class="omrs-input-group mt-3">
-                    <label class="omrs-input-underlined">
+                  <div className="omrs-input-group mt-3">
+                    <label className="omrs-input-underlined">
                       <input
                         type={showPassword ? "text" : "password"}
                         name="password"
                         required
                       />
-                      <span class="omrs-input-label">Create your password</span>
-                      <span class="omrs-input-helper"></span>
+                      <span className="omrs-input-label">
+                        Create your password
+                      </span>
+                      <span className="omrs-input-helper"></span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
                         height="20"
                         fill="currentColor"
-                        class="bi bi-lock"
+                        className="bi bi-lock"
                         viewBox="0 0 16 16"
                       >
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
@@ -155,7 +163,7 @@ export default function Signin() {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class="bi bi-eye-slash"
+                            className="bi bi-eye-slash"
                             viewBox="0 0 16 16"
                           >
                             <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
@@ -168,7 +176,7 @@ export default function Signin() {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class="bi bi-eye"
+                            className="bi bi-eye"
                             viewBox="0 0 16 16"
                           >
                             <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
