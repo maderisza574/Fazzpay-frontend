@@ -192,7 +192,7 @@ export default function Signin() {
               </button>
             </div>
             <div className="nav_signup mt-3">
-              Already, have an account Lets <Link href="/sigin">Login</Link>
+              Already, have an account Lets <Link href="/signin">Login</Link>
             </div>
           </div>
         </div>
