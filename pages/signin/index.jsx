@@ -1,7 +1,30 @@
-import React from "react";
-// import Image from "next/image";
+import React, { useState } from "react";
+import axiosClient from "utils/axios";
+
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 export default function Signin() {
+  const router = useRouter();
+  const [form, setForm] = useState({});
+
+  const handleSubmit = async () => {
+    try {
+      const result = await axiosClient.post("/auth/login", form);
+      // menjalankan get user by id dan menyimpan datanya ke redux
+      Cookies.set("token", result.data.data.token);
+      Cookies.set("userId", result.data.data.id);
+      //   proses kondisi pengecekan pin jika ada akan diarahkan ke home jika tidak ada akan diarahkan ke create pin
+      router.push("/home");
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChangeText = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   return (
     <div>
       <div className="contsign container-fluid py-0 text center">
@@ -42,7 +65,11 @@ export default function Signin() {
                 <form>
                   <div class="omrs-input-group mt-3">
                     <label class="omrs-input-underlined">
-                      <input required />
+                      <input
+                        type="email"
+                        name="email"
+                        onChange={handleChangeText}
+                      />
                       <span class="omrs-input-label">Enter your e-mail</span>
                       <span class="omrs-input-helper"></span>
                       <svg
@@ -59,7 +86,11 @@ export default function Signin() {
                   </div>
                   <div class="omrs-input-group mt-3">
                     <label class="omrs-input-underlined">
-                      <input required />
+                      <input
+                        type="password"
+                        name="password"
+                        onChange={handleChangeText}
+                      />
                       <span class="omrs-input-label">Enter your password</span>
                       <span class="omrs-input-helper"></span>
                       <svg
@@ -94,7 +125,13 @@ export default function Signin() {
             </div>
             <div className="forgot_button  mt-1">Forgot Password?</div>
             <div className="login_button mt-3">
-              <button className="btn btn-primary w-75">Login</button>
+              <button
+                className="btn btn-primary w-75"
+                type="button"
+                onClick={handleSubmit}
+              >
+                Login
+              </button>
             </div>
             <div className="nav_signup mt-3">
               Dont have an account? Lets Sign Up
