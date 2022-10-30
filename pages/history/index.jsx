@@ -2,8 +2,28 @@ import React from "react";
 import Header from "components/header";
 import Aside from "components/aside";
 import Footer from "components/footer";
+import { gethistory } from "/stores/actions/history";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import CardHistory from "components/cardhistory";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const [data, setData] = useState();
+  useEffect(() => {
+    getData();
+  }, []);
+  const getData = () => {
+    try {
+      dispatch(gethistory())
+        .then((response) => setData(response.value.data.data))
+        .catch((error) => console.log(error));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(data);
   return (
     <div>
       <Header />
@@ -17,22 +37,18 @@ export default function Home() {
             <div className="button_filter">
               <button className="btn btn-primary">-- Select Filter --</button>
             </div>
-            <div className="card mt-3 d-flex">
-              <div className="row">
-                <div className="col">
-                  <div className="avatar">
-                    <img src="avatar.png" alt="" />
-                  </div>
-                  <div className="name_avatar flex">
-                    <h6>Robert</h6>
-                    <h6>+62 8124-4878-919</h6>
-                  </div>
+            {data.length > 0 ? (
+              data.map((item) => (
+                <div key={item.id}>
+                  <CardHistory />
                 </div>
-                <div className="col col-md-3 ">
-                  <h6>+Rp.50.000</h6>
-                </div>
+              ))
+            ) : (
+              <div>
+                <span>Data Not Found !</span>
               </div>
-            </div>
+            )}
+
             {/* end card top */}
           </div>
         </div>
