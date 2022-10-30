@@ -16,8 +16,14 @@ export default function Signin() {
       // menjalankan get user by id dan menyimpan datanya ke redux
       Cookies.set("token", result.data.data.token);
       Cookies.set("userId", result.data.data.id);
+      Cookies.set("pin", result.data.data.pin);
+      {
+        result.data.data.pin === null
+          ? router.push("/createpin")
+          : router.push("/home");
+      }
       //   proses kondisi pengecekan pin jika ada akan diarahkan ke home jika tidak ada akan diarahkan ke create pin
-      router.push("/home");
+
       console.log(result);
     } catch (error) {
       console.log(error);

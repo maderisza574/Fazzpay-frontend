@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import axiosClient from "utils/axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
 // import Image from "next/image";
 
 export default function Signin() {
   const router = useRouter();
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async () => {
     try {

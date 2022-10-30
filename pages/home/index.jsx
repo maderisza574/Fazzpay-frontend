@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import Header from "components/header";
 import Aside from "components/aside";
 import Footer from "components/footer";
+import axios from "../../utils/axios";
+// import { useSelector, useDispatch } from "react-redux";
+// import { getdashboardbyId } from "stores/actions/dashboard";
+import Cookies from "js-cookie";
 
 export default function Home() {
+  // const dispatch = useDispatch();
+  // const data = useSelector((state) => state.dashboard.data);
+  const [data, setData] = useState({});
+  // console.log(data);
+  const userid = Cookies.get("userId");
+  console.log(userid);
+  useEffect(() => {
+    getDataDashboard();
+  }, []);
+  console.log(getDataDashboard);
+  const getDataDashboard = async () => {
+    try {
+      const result = await axios.get(`/dashboard/${userid}`);
+      console.log(result.data.data);
+      setData(result.data.data);
+
+      // console.log(result);
+    } catch (error) {
+      // console.error(error);
+    }
+  };
+
+  // useEffect(() => {
+  // dispatch(getdashboardbyId(userid));
+  // getdashboardbyId(userid);
+  // setData(dispatch(getdashboardbyId(userid)));
+  // }, []);
+  // const getdatadashboard = async (userid) => {
+  // try {
+  // await dispatch(getdashboardbyId(userid));
+  // } catch (error) {}
+  // };
+  // console.log(getdatadashboard);
   return (
     <div>
       <Header />
@@ -41,11 +79,11 @@ export default function Home() {
                   <div className="row">
                     <div className="col">
                       <h6>Icome</h6>
-                      <h5>Rp.2.120.000</h5>
+                      <h5>Rp.{data.totalIncome}</h5>
                     </div>
                     <div className="col">
                       <h6>Expense</h6>
-                      <h5>Rp.1.560.000</h5>
+                      <h5>Rp.{data.totalExpense}</h5>
                     </div>
                   </div>
                 </div>
