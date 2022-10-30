@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 // import Image from "next/image";
 import PinInput from "react-pin-input";
-
+import Cookies from "js-cookie";
+import axios from "../../utils/axios";
+import Router from "next/router";
 export default function Signin() {
+  const userid = Cookies.get("userId");
+  console.log(userid);
+  const [form, setForm] = useState({});
+
+  const handleChangePin = (e) => {
+    setForm({ ...form, pin: e });
+  };
+  const handlePin = async () => {
+    try {
+      console.log(form);
+      const result = await axios.patch(`/user/pin/${userid}`, form);
+      alert("succes update pin");
+      Router.push("/home");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="contsign container-fluid py-0 text center">
@@ -42,14 +62,34 @@ export default function Signin() {
                 {/* This form */}
                 <form>
                   <div className="pin_input row d-flex justify-content-center mt-3">
-                    <PinInput type="numeric" length={6} inputMode="number" />
+                    <PinInput
+                      length={6}
+                      initialValue=""
+                      secret
+                      onChange={(value, index) => {
+                        console.log(value, index);
+                        handleChangePin(value);
+                      }}
+                      type="numeric"
+                      inputMode="number"
+                      style={{ padding: "10px" }}
+                      inputStyle={{ borderColor: "red" }}
+                      inputFocusStyle={{ borderColor: "blue" }}
+                      onComplete={(value, index) => {
+                        console.log(value, index);
+                      }}
+                      autoSelect={true}
+                      regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                    />
                   </div>
                 </form>
                 {/* end form */}
               </div>
             </div>
             <div className="login_button mt-5">
-              <button className="btn btn-primary w-75">Confirm</button>
+              <button className="btn btn-primary w-75" onClick={handlePin}>
+                Confirm
+              </button>
             </div>
           </div>
         </div>
