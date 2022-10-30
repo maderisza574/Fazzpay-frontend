@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Modal from "react-bootstrap/Modal";
+import axios from "utils/axios";
 
 export default function Aside() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const handlelogout = () => {
     const logout = window.confirm("Are you sure?");
     if (logout) {
@@ -11,6 +16,23 @@ export default function Aside() {
     } else {
     }
   };
+  const [form, setForm] = useState({
+    amount: "",
+  });
+  console.log(form);
+  const handleTopup = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await axios.post("/transaction/top-up", form);
+      alert("succes");
+    } catch (error) {
+      alert(error);
+    }
+  };
+  const handleChangeText = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="container bg-white">
       <div className="row_dashboard row">
@@ -39,7 +61,35 @@ export default function Aside() {
             <img src="icon3.png" alt="" style={{ width: 20, height: 20 }} />
           </div>
           <div className="icon_topup mt-1">
-            <Link href="/topup">Topup</Link>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Topup</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <form>
+                  <label className="me-3">
+                    Enter the amount of money, and click submit
+                  </label>
+                  <input
+                    type="number"
+                    className="w-100"
+                    name="amount"
+                    onChange={handleChangeText}
+                  />
+                  {/* {image && (
+            )} */}
+
+                  <button
+                    type="submit"
+                    className="w-100 my-5 btn btn-primary"
+                    onClick={handleTopup}
+                  >
+                    Submit
+                  </button>
+                </form>
+              </Modal.Body>
+            </Modal>
+            <button onClick={handleShow}>Topup</button>
           </div>
         </div>
       </div>
