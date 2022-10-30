@@ -4,15 +4,16 @@ import Header from "components/header";
 import Aside from "components/aside";
 import Footer from "components/footer";
 import axios from "../../utils/axios";
-// import { useSelector, useDispatch } from "react-redux";
-// import { getdashboardbyId } from "stores/actions/dashboard";
+import { useSelector } from "react-redux";
+// import { getDataUserById } from "stores/actions/dashboard";
 import Cookies from "js-cookie";
 
 export default function Home() {
   // const dispatch = useDispatch();
-  // const data = useSelector((state) => state.dashboard.data);
+  const user = useSelector((state) => state.user.data);
+  console.log(user.data);
   const [data, setData] = useState({});
-  // console.log(data);
+  console.log(data);
   const userid = Cookies.get("userId");
   console.log(userid);
   useEffect(() => {
@@ -30,6 +31,19 @@ export default function Home() {
       // console.error(error);
     }
   };
+  // useEffect(() => {
+  //   getDataBalance();
+  // }, []);
+  // console.log(getDataBalance);
+  // const getDataBalance = async () => {
+  //   try {
+  //     const result = await axios.get(`/user/profile/${userid}`);
+  //     console.log(result.data.data);
+  //     setData(result.data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // useEffect(() => {
   // dispatch(getdashboardbyId(userid));
@@ -55,8 +69,8 @@ export default function Home() {
               <div className="row">
                 <div className="col col-md-8">
                   <h6>Balance</h6>
-                  <h3>Rp.120.000</h3>
-                  <h6>+62 81244-878919</h6>
+                  <h3>Rp.{user.balance}</h3>
+                  <h6>{user.noTelp}</h6>
                 </div>
                 <div className="col col-md-4">
                   <div className="row mb-2">

@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import counter from "./counter";
-import dashboard from "./dashboard";
+import user from "./user";
 
 export default combineReducers({
   counter,
-  dashboard,
+  user,
 });

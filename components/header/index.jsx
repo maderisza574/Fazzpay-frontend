@@ -1,8 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const user = useSelector((state) => state.user.data);
   const router = useRouter();
   const handleLogout = () => {
     router.push("/");
@@ -18,8 +20,11 @@ export default function Header() {
               <img src="avatar.png" alt="" />
             </div>
             <div className="name_avatar flex">
-              <h6>Robert</h6>
-              <h6>+62 8124-4878-919</h6>
+              <h6>
+                {user.firstName}
+                {user.lastName}
+              </h6>
+              <h6>+62 {user.noTelp}</h6>
             </div>
             <div className="notification">
               <svg

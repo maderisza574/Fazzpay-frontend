@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axiosClient from "utils/axios";
+import { useDispatch } from "react-redux";
 
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { getDataUserById } from "/stores/actions/user";
 
 export default function Signin() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [form, setForm] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +16,7 @@ export default function Signin() {
   const handleSubmit = async () => {
     try {
       const result = await axiosClient.post("/auth/login", form);
+      dispatch(getDataUserById(result.data.data.id));
       // menjalankan get user by id dan menyimpan datanya ke redux
       Cookies.set("token", result.data.data.token);
       Cookies.set("userId", result.data.data.id);
