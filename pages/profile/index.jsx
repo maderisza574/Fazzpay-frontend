@@ -2,8 +2,19 @@ import React from "react";
 import Header from "components/header";
 import Aside from "components/aside";
 import Footer from "components/footer";
+import Router from "next/router";
 
 export default function Home() {
+  const PersonalInfo = () => {
+    Router.push("/personalinfo");
+  };
+  const ChangePass = () => {
+    Router.push("/changepass");
+  };
+  const CreatePin = () => {
+    Router.push("/createpin");
+  };
+
   return (
     <div>
       <Header />
@@ -24,17 +35,19 @@ export default function Home() {
             </div>
             <div className="group_avatar">
               <div className="information mt-5">
-                <button className="btn btn-primary">
+                <button className="btn btn-primary" onClick={PersonalInfo}>
                   Personal Information
                 </button>
               </div>
               <div className="changepas mt-3">
-                <button className="btn btn-primary w-40">
+                <button className="btn btn-primary w-40" onClick={ChangePass}>
                   Change Password
                 </button>
               </div>
               <div className="changepin mt-3">
-                <button className="btn btn-primary">Change Pin</button>
+                <button className="btn btn-primary" onClick={CreatePin}>
+                  Change Pin
+                </button>
               </div>
               <div className="information mt-3">
                 <button className="btn btn-primary">Logout</button>

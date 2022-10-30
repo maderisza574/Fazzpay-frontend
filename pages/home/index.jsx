@@ -7,6 +7,7 @@ import axios from "../../utils/axios";
 import { useSelector } from "react-redux";
 // import { getDataUserById } from "stores/actions/dashboard";
 import Cookies from "js-cookie";
+import Chart from "../../pages/handle-chart";
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function Home() {
   console.log(data);
   const userid = Cookies.get("userId");
   console.log(userid);
+  const [dashboardData, setDashboardData] = useState({});
   useEffect(() => {
     getDataDashboard();
   }, []);
@@ -56,6 +58,7 @@ export default function Home() {
   // } catch (error) {}
   // };
   // console.log(getdatadashboard);
+
   return (
     <div>
       <Header />
@@ -99,6 +102,9 @@ export default function Home() {
                       <h6>Expense</h6>
                       <h5>Rp.{data.totalExpense}</h5>
                     </div>
+                    <div className="chart">
+                      <Chart />
+                    </div>
                   </div>
                 </div>
                 <div className="col col-md-5 bg-white rounded">
@@ -112,7 +118,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="name_avatar flex">
-                      <h6>Robert</h6>
+                      <h6>{user.firstName}</h6>
                       <h6>+62 8124-4878-919</h6>
                     </div>
                   </div>

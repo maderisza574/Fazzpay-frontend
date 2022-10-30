@@ -2,6 +2,15 @@ import React from "react";
 import Link from "next/link";
 
 export default function Aside() {
+  const handlelogout = () => {
+    const logout = window.confirm("Are you sure?");
+    if (logout) {
+      Cookies.remove("token", "id", "receiverId");
+      localStorage.clear();
+      Router.push("/signin");
+    } else {
+    }
+  };
   return (
     <div className="container bg-white">
       <div className="row_dashboard row">
@@ -49,7 +58,9 @@ export default function Aside() {
           <div className="img_transfer">
             <img src="icon 4.png" alt="" style={{ width: 20, height: 20 }} />
           </div>
-          <div className="icon_logout mt-1">Logout</div>
+          <div className="icon_logout mt-1" onClick={handlelogout}>
+            Logout
+          </div>
         </div>
       </div>
     </div>
