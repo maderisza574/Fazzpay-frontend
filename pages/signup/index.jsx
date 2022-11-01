@@ -13,14 +13,15 @@ export default function Signin() {
     email: "",
     password: "",
   });
+  console.log(form);
   const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async () => {
     try {
       const result = await axiosClient.post("/auth/register", form);
-      router.push("/signin");
-      console.log(result);
+      router.push("/login");
+      alert(console.log(result));
     } catch (error) {
-      console.log(error);
+      alert(console.log(error));
     }
   };
   const handleChangeText = (e) => {
@@ -69,7 +70,7 @@ export default function Signin() {
                     <label className="omrs-input-underlined">
                       <input
                         type="text"
-                        name="firstname"
+                        name="firstName"
                         onChange={handleChangeText}
                         required
                       />
@@ -93,7 +94,7 @@ export default function Signin() {
                     <label className="omrs-input-underlined">
                       <input
                         type="text"
-                        name="lastname"
+                        name="lastName"
                         onChange={handleChangeText}
                         required
                       />
@@ -143,6 +144,7 @@ export default function Signin() {
                         type={showPassword ? "text" : "password"}
                         name="password"
                         required
+                        onChange={handleChangeText}
                       />
                       <span className="omrs-input-label">
                         Create your password

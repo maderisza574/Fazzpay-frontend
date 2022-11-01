@@ -5,59 +5,35 @@ import Aside from "components/aside";
 import Footer from "components/footer";
 import axios from "../../utils/axios";
 import { useSelector } from "react-redux";
-// import { getDataUserById } from "stores/actions/dashboard";
+import { getDataUserById } from "stores/actions/user";
 import Cookies from "js-cookie";
 import Chart from "../../pages/handle-chart";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.data);
-  console.log(user.data);
-  const [data, setData] = useState({});
-  console.log(data);
+  const [dataDashboard, setDataDashboard] = useState({});
   const userid = Cookies.get("userId");
-  console.log(userid);
-  const [dashboardData, setDashboardData] = useState({});
+
   useEffect(() => {
-    getDataDashboard();
+    getDataDashboard(), getbalance();
   }, []);
-  console.log(getDataDashboard);
+  // console.log(getDataDashboard);
   const getDataDashboard = async () => {
     try {
       const result = await axios.get(`/dashboard/${userid}`);
       console.log(result.data.data);
-      setData(result.data.data);
+      setDataDashboard(result.data.data);
 
       // console.log(result);
     } catch (error) {
       // console.error(error);
     }
   };
-  // useEffect(() => {
-  //   getDataBalance();
-  // }, []);
-  // console.log(getDataBalance);
-  // const getDataBalance = async () => {
-  //   try {
-  //     const result = await axios.get(`/user/profile/${userid}`);
-  //     console.log(result.data.data);
-  //     setData(result.data.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  // dispatch(getdashboardbyId(userid));
-  // getdashboardbyId(userid);
-  // setData(dispatch(getdashboardbyId(userid)));
-  // }, []);
-  // const getdatadashboard = async (userid) => {
-  // try {
-  // await dispatch(getdashboardbyId(userid));
-  // } catch (error) {}
-  // };
-  // console.log(getdatadashboard);
+  const getbalance = () => {
+    dispatch(getDataUserById(userid));
+  };
 
   return (
     <div>
@@ -96,11 +72,11 @@ export default function Home() {
                   <div className="row">
                     <div className="col">
                       <h6>Icome</h6>
-                      <h5>Rp.{data.totalIncome}</h5>
+                      <h5>Rp.{dataDashboard.totalIncome}</h5>
                     </div>
                     <div className="col">
                       <h6>Expense</h6>
-                      <h5>Rp.{data.totalExpense}</h5>
+                      <h5>Rp.{dataDashboard.totalExpense}</h5>
                     </div>
                     <div className="chart">
                       <Chart />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useEffect } from "react";
 import Link from "next/link";
 import Modal from "react-bootstrap/Modal";
 import axios from "utils/axios";
@@ -7,6 +8,7 @@ export default function Aside() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [data, setData] = useState({});
   const handlelogout = () => {
     const logout = window.confirm("Are you sure?");
     if (logout) {
@@ -20,11 +22,18 @@ export default function Aside() {
     amount: "",
   });
   console.log(form);
+  // useEffect(() => {
+  //   handleTopup();
+  // }, []);
   const handleTopup = async (e) => {
     e.preventDefault();
     try {
       const result = await axios.post("/transaction/top-up", form);
+      console.log(result.data.data);
+      setData(result.data.data);
+      console.log(setData);
       alert("succes");
+      window.open(`${data.redirectUrl}`, "_blank");
     } catch (error) {
       alert(error);
     }
