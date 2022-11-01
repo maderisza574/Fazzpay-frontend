@@ -23,7 +23,7 @@ const datauser = (state = initialState, action) => {
       return {
         ...state,
         isError: true,
-        message: action.payload.response.data.msg,
+        message: action.payload.response.data.data.msg,
         data: [],
       };
   }

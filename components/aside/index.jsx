@@ -3,19 +3,23 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Modal from "react-bootstrap/Modal";
 import axios from "utils/axios";
+import { useRouter } from "next/router";
 
 export default function Aside() {
+  const router = useRouter();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [data, setData] = useState({});
-  const handlelogout = () => {
-    const logout = window.confirm("Are you sure?");
-    if (logout) {
-      Cookies.remove("token", "id", "receiverId");
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(`/auth/logout`);
+      Cookies.remove("token");
       localStorage.clear();
-      Router.push("/signin");
-    } else {
+      router.push("/login");
+    } catch (error) {
+      console.log(error);
     }
   };
   const [form, setForm] = useState({
@@ -117,8 +121,10 @@ export default function Aside() {
           <div className="img_transfer">
             <img src="icon 4.png" alt="" style={{ width: 20, height: 20 }} />
           </div>
-          <div className="icon_logout mt-1" onClick={handlelogout}>
-            Logout
+          <div className="icon_logout mt-1">
+            <button className="icon_logout mt-1" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       </div>

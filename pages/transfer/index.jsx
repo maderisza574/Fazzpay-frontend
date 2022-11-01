@@ -11,13 +11,21 @@ import CardReceiver from "../../components/cardreceiver";
 export default function Transfer() {
   const dispatch = useDispatch();
   const userall = useSelector((state) => state.alluser.data);
-  console.log(userall);
-  const [dataAllUser, setDataAllUser] = useState();
+
+  const data = userall.map((e) => {
+    console.log(e);
+  });
+  // const [dataAllUser, setDataAllUser] = useState();
   useEffect(() => {
     getDataAllUser();
   }, []);
-  const getDataAllUser = () => {
-    dispatch(getAllUser());
+  const getDataAllUser = async () => {
+    try {
+      dispatch(getAllUser());
+    } catch (error) {
+      console.log(error);
+    }
+
     // .then((response) =>setDataAllUser(response.value.data.data)
     // );
   };
