@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getDataUserById } from "/stores/actions/user";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Signin() {
   const dispatch = useDispatch();
@@ -18,10 +20,9 @@ export default function Signin() {
     try {
       const result = await axiosClient.post("/auth/login", form);
       dispatch(getDataUserById(result.data.data.id));
-
       Cookies.set("token", result.data.data.token);
       Cookies.set("userId", result.data.data.id);
-      alert(console.log(result));
+      toast.success(result.data.msg);
 
       result.data.data.pin === null
         ? router.push("/createpin")
@@ -29,7 +30,9 @@ export default function Signin() {
 
       //   proses kondisi pengecekan pin jika ada akan diarahkan ke home jika tidak ada akan diarahkan ke create pin
     } catch (error) {
-      alert(console.log(error));
+      toast.error(error.response.data.msg, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
 
@@ -170,6 +173,7 @@ export default function Signin() {
                 onClick={handleSubmit}
               >
                 Login
+                <ToastContainer />
               </button>
             </div>
             <div className="nav_signup mt-3">

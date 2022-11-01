@@ -4,6 +4,7 @@ import Link from "next/link";
 import Modal from "react-bootstrap/Modal";
 import axios from "utils/axios";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function Aside() {
   const router = useRouter();

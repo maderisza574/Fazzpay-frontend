@@ -15,6 +15,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.data);
   const [dataDashboard, setDataDashboard] = useState({});
+  console.log(dataDashboard);
   const userid = Cookies.get("userId");
 
   useEffect(() => {
@@ -80,7 +81,7 @@ export default function Home() {
                       <h5>Rp.{dataDashboard.totalExpense}</h5>
                     </div>
                     <div className="chart">
-                      <Chart />
+                      <Chart data={dataDashboard} />
                     </div>
                   </div>
                 </div>

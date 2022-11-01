@@ -3,9 +3,11 @@ import axiosClient from "utils/axios";
 // import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Image from "next/image";
 
-export default function Signin() {
+export default function Signup() {
   const router = useRouter();
   const [form, setForm] = useState({
     firstName: "",
@@ -19,9 +21,13 @@ export default function Signin() {
     try {
       const result = await axiosClient.post("/auth/register", form);
       router.push("/login");
-      alert(console.log(result));
+      toast.success(result.data.msg, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (error) {
-      alert(console.log(error));
+      toast.error(error.response.data.msg, {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
   const handleChangeText = (e) => {
@@ -204,6 +210,7 @@ export default function Signin() {
                 onClick={handleSubmit}
               >
                 Sign Up
+                <ToastContainer />
               </button>
             </div>
             <div className="nav_signup mt-3">
