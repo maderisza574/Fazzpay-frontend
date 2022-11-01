@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "components/header";
 import Aside from "components/aside";
 import Footer from "components/footer";
+import { getAllUser } from "stores/actions/alluser";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import CardReceiver from "../../components/cardreceiver";
 
-export default function Home() {
+export default function Transfer() {
+  const dispatch = useDispatch();
+  const userall = useSelector((state) => state.alluser.data);
+  console.log(userall);
+  const [dataAllUser, setDataAllUser] = useState();
+  useEffect(() => {
+    getDataAllUser();
+  }, []);
+  const getDataAllUser = () => {
+    dispatch(getAllUser());
+    // .then((response) =>setDataAllUser(response.value.data.data)
+    // );
+  };
   return (
     <div>
       <Header />
@@ -20,73 +37,19 @@ export default function Home() {
               placeholder="Search"
               aria-label="Search"
             ></input>
-            <div className="card mt-3">
-              <div className="avatar">
-                <img
-                  src="avatar.png"
-                  alt=""
-                  style={{ height: 50, width: 50 }}
-                />
-              </div>
-              <div className="name_avatar flex">
-                <h6>Robert</h6>
-                <h6>+62 8124-4878-919</h6>
-              </div>
-            </div>
-            {/* <div className="crd_balance card">
-              <div className="row">
-                <div className="col col-md-8">
-                  <h6>Balance</h6>
-                  <h3>Rp.120.000</h3>
-                  <h6>+62 81244-878919</h6>
+
+            {userall.length > 0 ? (
+              userall.map((item) => (
+                <div key={item.id}>
+                  <CardReceiver data={item} />
                 </div>
-                <div className="col col-md-4">
-                  <div className="row mb-2">
-                    <div className="crd_trf">
-                      <button className="btn btn-warning">Transfer</button>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="crd_top">
-                      <button className="btn btn-success">Top up</button>
-                    </div>
-                  </div>
-                </div>
+              ))
+            ) : (
+              <div>
+                <span>Data Not Found !</span>
               </div>
-            </div> */}
+            )}
             {/* end card top */}
-            {/* <div className="row gap-1 mx-1 my-5">
-              <div className="row">
-                <div className="col col-md-6 me-1 bg-white rounded">
-                  <div className="row">
-                    <div className="col">
-                      <h6>Icome</h6>
-                      <h5>Rp.2.120.000</h5>
-                    </div>
-                    <div className="col">
-                      <h6>Expense</h6>
-                      <h5>Rp.1.560.000</h5>
-                    </div>
-                  </div>
-                </div>
-                <div className="col col-md-5 bg-white rounded">
-                  <h6>Transaction History</h6>
-                  <div className="card">
-                    <div className="avatar">
-                      <img
-                        src="avatar.png"
-                        alt=""
-                        style={{ height: 50, width: 50 }}
-                      />
-                    </div>
-                    <div className="name_avatar flex">
-                      <h6>Robert</h6>
-                      <h6>+62 8124-4878-919</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
