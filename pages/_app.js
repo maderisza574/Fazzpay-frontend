@@ -4,6 +4,7 @@ import "../styles/header.css";
 import "../styles/aside.css";
 import "../styles/home.css";
 import "../styles/footer.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { Provider } from "react-redux";
 import stores from "stores";
 const { store, persistor } = stores;

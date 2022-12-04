@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
 .container {
   padding: 0 2rem;
   height: 100vh;
@@ -108,6 +109,91 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+/* new css home */
+.image_landing {
+  margin-left: 100px;
+}
+.desc_landing {
+  font-family: "Nunito Sans";
+  font-size: 50px;
+  font-weight: 100px !important;
+  margin-top: 150px;
+}
+.desc_landing_span {
+  color: #6379f4;
+}
+.desc_landing_grup {
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.opinion_landing_grup {
+  width: 400px;
+  margin-left: 30px;
+}
+.button_try_landing {
+  width: 100px;
+  height: 40px;
+  background: #6379f4;
+  border: #6379f4;
+  /* box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05); */
+  border-radius: 12px;
+  color: white;
+}
+.button_landing_group {
+  margin-left: 30px;
+  margin-top: 50px;
+}
+.landing_available {
+  margin-left: 30px;
+}
+.available_landing {
+  font-family: "Nunito Sans";
+  font-size: 20px;
+}
+.iconlanding {
+  padding: 30px;
+}
+.grup_icon_landing {
+  display: flex;
+}
+.icon_landing {
+  margin-right: 30px;
+}
+.about_landing {
+  font-family: "Nunito Sans";
+  font-size: 50px;
+  margin-left: 500px;
+  margin-top: 50px;
+}
+.desc_about_landing {
+  text-align: center;
+}
+.opinion_landing {
+  width: 500px;
+  margin-left: 500px;
+  margin-top: 30px;
+}
+.opinion_promotion {
+  font-family: "Nunito Sans";
+  font-size: 40px;
+  width: 350px;
+  margin-top: 100px;
+}
+.opinion_promotion_span {
+  color: #6379f4;
+}
+.card_opinion_landing {
+  font-family: "Nunito Sans";
+}
+.header_landing {
+  background-color: #6379f4;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* end css home */
 
 @media (max-width: 600px) {
   .grid {
